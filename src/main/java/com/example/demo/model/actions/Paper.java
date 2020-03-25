@@ -7,8 +7,8 @@ import java.util.Optional;
 
 public class Paper extends BaseAction {
 
-    public Paper(String name, String iconUrl) {
-        super(name,iconUrl,ActionEnum.PAPER);
+    public Paper(String name, String iconUrl,ActionEnum actionEnum) {
+        super(name,iconUrl,actionEnum);
     }
 
 

@@ -8,8 +8,8 @@ import java.util.Optional;
 public class Scissors extends BaseAction {
 
 
-    public Scissors(String name, String iconUrl) {
-        super(name,iconUrl,ActionEnum.SCISSORS);
+    public Scissors(String name, String iconUrl,ActionEnum actionEnum) {
+        super(name,iconUrl,actionEnum);
     }
 
 

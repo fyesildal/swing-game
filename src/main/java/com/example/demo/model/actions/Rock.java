@@ -9,8 +9,8 @@ import java.util.Optional;
 public class Rock  extends BaseAction {
 
 
-    public Rock(String name, String iconUrl) {
-        super(name,iconUrl,ActionEnum.ROCK);
+    public Rock(String name, String iconUrl,ActionEnum actionEnum) {
+        super(name,iconUrl,actionEnum);
     }
 
 

@@ -1,5 +1,6 @@
 package com.example.demo.factory;
 
+import com.example.demo.constants.ActionEnum;
 import com.example.demo.model.actions.IAction;
 import com.example.demo.model.actions.Paper;
 import com.example.demo.model.actions.Rock;
@@ -11,18 +12,20 @@ import java.util.Optional;
 
 public class ActionFactory {
 
-   private static List<IAction> items=new ArrayList<IAction>();;
+    private  List<IAction> items=new ArrayList<IAction>();
 
-   public static List<IAction>  createItems() {
-       if (items.isEmpty()) {
-           initItems();
-       }
-       return items;
+   private  static  ActionFactory instance;
+    public static ActionFactory getInstance() {
+        if(instance==null){
+            ActionFactory.instance=new ActionFactory();
+        }
+        return instance;
+    }
+
+    private ActionFactory(){
 
    }
-
-
-    public static List<IAction>  getItems() {
+    public  List<IAction>  getItems() {
         if (items.isEmpty()) {
             initItems();
         }
@@ -30,21 +33,21 @@ public class ActionFactory {
 
     }
 
-   private static void initItems(){
-       Paper paper = new Paper("Paper","images/paper.png");
-       Rock rock = new Rock("Rock","images/rock.png");
-       IAction scissors = new Scissors("Scissors","images/scissors.png");
+   private  void initItems(){
+       Paper paper = new Paper("Paper","images/paper.png", ActionEnum.PAPER);
+       Rock rock = new Rock("Rock","images/rock.png",ActionEnum.ROCK);
+       IAction scissors = new Scissors("Scissors","images/scissors.png",ActionEnum.SCISSORS);
 
        items.add(paper);
        items.add(rock);
        items.add(scissors);
    }
 
-   public static Optional<IAction> getActionByName(String name){
+   public  Optional<IAction> getActionByName(String name){
        return  getItems().stream().filter(e->e.getName().equals(name)).findFirst();
    }
 
-    public static Optional<IAction> getActionByOrder(Integer order){
+    public  Optional<IAction> getActionByOrder(Integer order){
             if(order <   getItems().size()){
                 return   Optional.of(getItems().get(order));
             }

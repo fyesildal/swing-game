@@ -13,7 +13,7 @@ public class AutoPlayer  implements IPlayer {
     public Optional<IAction> play() {
         Random generator = new Random();
         Integer order = generator.nextInt(3);
-        return  ActionFactory.getActionByOrder(order);
+        return  ActionFactory.getInstance().getActionByOrder(order);
 
 
     }

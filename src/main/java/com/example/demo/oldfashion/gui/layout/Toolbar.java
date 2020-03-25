@@ -1,6 +1,6 @@
 package com.example.demo.oldfashion.gui.layout;
 
-import com.example.demo.controller.IActionController;
+import com.example.demo.controller.IApplicationController;
 import com.example.demo.model.actions.IAction;
 import com.example.demo.utils.Utils;
 
@@ -14,7 +14,7 @@ public class Toolbar extends JPanel  {
 
 
 	
-	public Toolbar(List<IAction> items, IActionController actionController) {
+	public Toolbar(List<IAction> items, IApplicationController actionController) {
 		setBorder(BorderFactory.createEtchedBorder());
 
         setLayout(new FlowLayout(FlowLayout.LEFT,63,20));
