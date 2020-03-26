@@ -3,15 +3,19 @@ package com.example.demo.constants;
 
 
 public enum  ActionEnum {
-    PAPER("Paper"),
-    ROCK("Rock"),
-    SCISSORS("Scissors"),
-    UNKNOWN("Unknown");
+    PAPER(ApplicationConstants.C_PAPER),
+    ROCK(ApplicationConstants.C_ROCK),
+    SCISSORS(ApplicationConstants.C_SCISSORS)
+    ;
 
-    private String name;
+    private String actionName;
 
     private  ActionEnum(String name){
-        this.name=name;
+        this.actionName=name;
+    }
+
+    public String getActionName(){
+        return actionName;
     }
 
 }

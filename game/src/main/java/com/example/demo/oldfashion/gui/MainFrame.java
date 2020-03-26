@@ -4,6 +4,7 @@ import com.example.demo.controller.IApplicationController;
 
 
 import com.example.demo.oldfashion.gui.layout.HeaderPanel;
+import com.example.demo.oldfashion.gui.layout.StringListener;
 import com.example.demo.oldfashion.gui.layout.TextPanel;
 import com.example.demo.oldfashion.gui.layout.Toolbar;
 import com.example.demo.model.actions.IAction;
@@ -19,8 +20,14 @@ public class MainFrame extends JFrame {
 	private HeaderPanel headerPanel;;
 	private Toolbar toolbar;
 	private TextPanel textPanel;
-	
+
+
 	public MainFrame(String header, List<IAction> items, IApplicationController controller) {
+          this(header,items,controller,true);
+	}
+
+	
+	public MainFrame(String header, List<IAction> items, IApplicationController controller,boolean visible) {
 
 		super(header);
 		setLayout(new BorderLayout());
@@ -43,10 +50,13 @@ public class MainFrame extends JFrame {
 			public void textEmitted(String p, String p2,String desc) {
 				textPanel.append(p,p2,desc);
 			}
+			public String getText() {
+			  return textPanel.geText();
+			}
 		});
 
 		setSize(600, 500);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setVisible(true);
+		setVisible(visible);
 	}
 }
